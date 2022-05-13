@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import HamburgerIcon from "../resources/Hamburger.png";
+import Hamburger from "./ui/Hamburger";
 
-const Hamburger = styled.img`
-  width: 30px;
-  background-color: transparent;
-  padding-left: 20px;
-  padding-top: 20px
-`;
+
+const StyledBody = styled.div`
+padding-top: 20px;
+padding-left:20px;
+display:flex;
+flex-direction:column;
+justify-content: center;
+`
+
 
 function Body() {
   const [counter, setCounter] = useState(200);
@@ -22,13 +25,9 @@ function Body() {
   const toggleMenu = () => {};
 
   return (
-    <div>
-      <Hamburger
-        src={HamburgerIcon}
-        alt="Hamburger Icon"
-        onClick={toggleMenu}
-      />
-    </div>
+    <StyledBody>
+    <Hamburger/>
+    </StyledBody>
   );
 }
 
