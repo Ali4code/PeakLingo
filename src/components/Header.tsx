@@ -1,5 +1,16 @@
-import logo from "../resources/logo.png"
-import styled from "styled-components"
+import logo from "../resources/logo.png";
+import styled from "styled-components";
+
+interface IHeaderProps {
+  counter: number;
+}
+
+const RootWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const Wrapper = styled.div`
 font-family: "Inter", sans-serif
@@ -13,22 +24,28 @@ flex-direction: row;
 padding-bottom: .25rem;
 padding-top: .25rem;
 align-items: center;
-`
+`;
+const StyledP = styled.p`
+  padding: 0 70px;
+  font-size: 30px;
+  font-weight: 700;
+`;
 const Logo = styled.img`
-width: 25px;
-padding: 1rem;
-`
+  width: 25px;
+  padding: 1rem;
+`;
 
-
-const Header = () => {
+const Header = ({ counter }: IHeaderProps) => {
   return (
-    <header>
-     <Wrapper>
-         <Logo src={logo} alt="Peaklingo"/>
-        <p><strong>Peak</strong>Lingo</p>
+    <RootWrapper>
+      <Wrapper>
+        <Logo src={logo} alt="Peaklingo" />
+        <p>
+          <strong>Peak</strong>Lingo
+        </p>
       </Wrapper>
-      
-    </header>
+      <StyledP>{counter}</StyledP>
+    </RootWrapper>
   );
 };
 

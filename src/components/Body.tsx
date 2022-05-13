@@ -1,19 +1,22 @@
-import { useState, useEffect } from "react";
+import {useEffect, Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import Hamburger from "./ui/Hamburger";
 
+interface IBodyProps {
+  setCounter: Dispatch<SetStateAction<number>>;
+}
 
 const StyledBody = styled.div`
-padding-top: 20px;
-padding-left:20px;
-display:flex;
-flex-direction:column;
-justify-content: center;
-`
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-
-function Body() {
-  const [counter, setCounter] = useState(200);
+function Body({setCounter }: IBodyProps) {
+ 
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +29,7 @@ function Body() {
 
   return (
     <StyledBody>
-    <Hamburger/>
+      <Hamburger />
     </StyledBody>
   );
 }
