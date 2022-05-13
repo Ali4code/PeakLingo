@@ -9,9 +9,7 @@ interface IBodyProps {
 const StyledBody = styled.div`
   padding-top: 20px;
   padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 80vh;
 `;
 
 function Body({setCounter }: IBodyProps) {

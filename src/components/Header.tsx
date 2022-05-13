@@ -13,7 +13,7 @@ const RootWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-font-family: "Inter", sans-serif
+font-family: "Inter", sans-serif;
 z-index: 1;
 margin-top: -3px;
 margin-left: 5px;
