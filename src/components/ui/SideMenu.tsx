@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ISideMenuProps {
+  itemScope : boolean
+}
+
 const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,6 +13,7 @@ const StyledMenu = styled.div`
   width: 30vh;
   text-align: left;
   padding: 2rem;
+  transform: ${(props) => props.itemScope ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.3s ease-in-out;
 
   a {
@@ -22,9 +27,9 @@ const StyledMenu = styled.div`
     transition: color 0.3s linear;
   }
 `;
-function SideMenu() {
+function SideMenu({itemScope}:ISideMenuProps) {
   return (
-    <StyledMenu>
+    <StyledMenu itemScope={itemScope}>
       <a href="/">About us</a>
       <a href="/">Log in</a>
       <a href="/">Register</a>

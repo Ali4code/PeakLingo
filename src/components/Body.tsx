@@ -14,6 +14,8 @@ const StyledBody = styled.div`
 `;
 
 function Body({ setCounter }: IBodyProps) {
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => prevCounter - 1);
@@ -21,6 +23,7 @@ function Body({ setCounter }: IBodyProps) {
     return () => clearInterval(interval);
   }, [setCounter]);
 
+  
   const [showSideMenu, setShowSideMenu] = useState<boolean>(false);
   const handleClick = () => {
     setShowSideMenu((prevState) => !prevState);
@@ -28,8 +31,8 @@ function Body({ setCounter }: IBodyProps) {
 
   return (
     <StyledBody>
-      <Hamburger handleClick={handleClick} />
-      {showSideMenu && <SideMenu />}
+      <Hamburger handleClick={handleClick} itemScope={showSideMenu} />
+      <SideMenu itemScope={showSideMenu}/>
     </StyledBody>
   );
 }

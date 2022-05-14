@@ -13,6 +13,7 @@ justify-content: center;
 padding-bottom: .25rem;
 padding-top: .25rem;
 align-items: center;
+flex-wrap: wrap;
 
 p {
   padding: 10px;
