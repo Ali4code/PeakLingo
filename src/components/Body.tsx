@@ -19,7 +19,7 @@ function Body({ setCounter }: IBodyProps) {
       setCounter((prevCounter) => prevCounter - 1);
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [setCounter]);
 
   const [showSideMenu, setShowSideMenu] = useState<boolean>(false);
   const handleClick = () => {
