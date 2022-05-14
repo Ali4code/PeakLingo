@@ -1,6 +1,7 @@
-import {useEffect, Dispatch, SetStateAction } from "react";
+import { useEffect, Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
 import Hamburger from "./ui/Hamburger";
+import SideMenu from "./ui/SideMenu";
 
 interface IBodyProps {
   setCounter: Dispatch<SetStateAction<number>>;
@@ -12,10 +13,7 @@ const StyledBody = styled.div`
   min-height: 80vh;
 `;
 
-function Body({setCounter }: IBodyProps) {
- 
-  
-
+function Body({ setCounter }: IBodyProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => prevCounter - 1);
@@ -23,11 +21,15 @@ function Body({setCounter }: IBodyProps) {
     return () => clearInterval(interval);
   }, []);
 
-  const toggleMenu = () => {};
+  const [showSideMenu, setShowSideMenu] = useState<boolean>(false);
+  const handleClick = () => {
+    setShowSideMenu((prevState) => !prevState);
+  };
 
   return (
     <StyledBody>
-      <Hamburger />
+      <Hamburger handleClick={handleClick} />
+      {showSideMenu && <SideMenu />}
     </StyledBody>
   );
 }

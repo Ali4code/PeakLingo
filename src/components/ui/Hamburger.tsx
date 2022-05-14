@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface IHamburgerProps {
+handleClick : () => void
+}
+
 const StyledHamburger = styled.button`
   display: flex;
   flex-direction: column;
@@ -26,9 +30,9 @@ const StyledHamburger = styled.button`
     transform-origin: 1px;
   }
 `
-function Hamburger() {
+function Hamburger({handleClick}:IHamburgerProps) {
   return (
-    <StyledHamburger>
+    <StyledHamburger onClick={handleClick}>
     <div></div>
     <div></div>
     <div></div>
